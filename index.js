@@ -100,6 +100,10 @@ function createLayout(graph, options) {
     function saveNode(node) {
         var idx = i * intSize * coordinatesPerRecord;
         var pos = layout.getNodePosition(node.id);
+        if (typeof node.data !== "undefined") {
+          // position node according to data, if possible
+          pos.x = node.data * 2
+        }
         buf.writeInt32LE(pos.x, idx);
         buf.writeInt32LE(pos.y, idx + 4);
         if (!is2d) {

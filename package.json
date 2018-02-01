@@ -1,5 +1,5 @@
 {
-  "name": "ngraph.offline.layout",
+  "name": "ngraph.offline.timelayout",
   "version": "1.1.1",
   "description": "Performs offline layout of large graphs and saves results to the disk",
   "main": "index.js",
@@ -13,11 +13,11 @@
     "offline",
     "layout"
   ],
-  "author": "Andrei Kashcha",
+  "author": "Andrei Kashcha, Jamie Cox",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/anvaka/ngraph.offline.layout"
+    "url": "https://github.com/causegraph/ngraph.offline.timelayout"
   },
   "dependencies": {
     "mkdirp": "^0.5.0",

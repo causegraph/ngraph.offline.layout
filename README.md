@@ -1,4 +1,7 @@
-# ngraph.offline.layout
+# ngraph.offline.timelayout
+
+Modified from the original `ngraph.offline.layout` by using node data (intended 
+to be a year) to determine position on the x axis.
 
 Performs offline 3D layout of large graphs and saves results to the disk. This is
 somewhat experimental.

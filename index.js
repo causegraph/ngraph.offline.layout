@@ -10,6 +10,9 @@ function createLayout(graph, options) {
   var saveEach = typeof options.saveEach === 'number' ? options.saveEach : 5;
   var outDir = typeof options.outDir === 'string' ? options.outDir : './data';
   var is2d = options.is2d ? true : false;
+  var maxTime = typeof options.maxTime === 'number' ? options.maxTime : Number.MAX_SAFE_INTEGER
+  var scale = typeof options.scale === 'number' ? options.scale : 2
+
   var coordinatesPerRecord = is2d ? 2 : 3;
   var intSize = 4;
   var layouter = is2d ? layout3d.get2dLayout : layout3d;
@@ -100,9 +103,12 @@ function createLayout(graph, options) {
     function saveNode(node) {
         var idx = i * intSize * coordinatesPerRecord;
         var pos = layout.getNodePosition(node.id);
+
         if (typeof node.data !== "undefined") {
           // position node according to data, if possible
-          pos.x = node.data * 2
+          pos.x = node.data * scale
+        } else if (pos.x > maxTime * scale) {
+          pos.x = maxTime * scale
         }
         buf.writeInt32LE(pos.x, idx);
         buf.writeInt32LE(pos.y, idx + 4);
